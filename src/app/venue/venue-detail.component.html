@@ -1,0 +1,36 @@
+<div class="panel panel-default" *ngIf="venue">
+  <div class="panel-heading">
+    {{venue.name}} Detail
+  </div>
+  <div class="panel-body">
+      <form>
+          <div class="form-group">
+            <label class="control-label">ID</label>
+            <div>
+              <p class="form-control-static">{{venue.id}}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Name</label>
+            <div>
+              <p class="form-control-static">{{venue.name}}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Description</label>
+            <div>
+              <p class="form-control-static">{{venue.description}}</p>
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label">Notes</label>
+            <div>
+              <p class="form-control-static">{{venue.notes}}</p>
+            </div>
+          </div>
+        </form>
+  </div>
+</div>
+<div *ngIf="!venue">
+  Please selete a venue from master view.
+</div>

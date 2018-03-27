@@ -1,0 +1,48 @@
+<div class="panel panel-primary">
+  <div class="panel-heading">
+    Create a New Venue
+  </div>
+  <div class="panel-body">
+    <form #addForm="ngForm">
+      <div class="form-group">
+        <label class="control-label">Name</label>
+        <div>
+          <input type="text" class="form-control" name="name" #name="ngModel" 
+            placeholder="Venue Name" [(ngModel)]="venue.name" required minlength="4" />
+        </div>
+        <div class="alert alert-danger" *ngIf="name.invalid && (name.dirty || name.touched)">
+          <div *ngIf="name.errors.required">
+            Name is required.
+          </div>
+          <div *ngIf="name.errors.minlength">
+            Name must be at least 4 characters long.
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+          <label class="control-label">Description</label>
+          <div>
+            <textarea class="form-control" name="description" #description="ngModel" 
+            placeholder="Venue Description" [(ngModel)]="venue.description" required></textarea>
+          </div>
+          <div class="alert alert-danger" *ngIf="description.invalid && (description.dirty || description.touched)">
+            <div *ngIf="description.errors.required">
+              Description is required.
+            </div>
+          </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label">Notes</label>
+            <div>
+              <textarea class="form-control" name="notes" 
+              placeholder="Venue Notes" [(ngModel)]="venue.notes"></textarea>
+            </div>
+          </div>
+          <button type="submit" (click)="createVenue(venue)" 
+          [disabled]="!addForm.valid"
+          class="btn btn-primary">Create</button>
+    </form>
+  </div>
+</div>
